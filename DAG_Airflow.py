@@ -29,7 +29,7 @@ with DAG(
         task_id= 'ingest_trx',
         function_id = 'func_transacciones',
         input_data = None,
-        Location = REGION,
+        location = REGION,
         project_id = PROJECT_ID
     )
 
@@ -37,9 +37,9 @@ with DAG(
         task_id= 'ingest_cmp',
         function_id = 'func_campaniass',
         input_data = None,
-        Location = REGION,
+        location = REGION,
         project_id = PROJECT_ID
     )
 
-        ingest_trx
-        ingest_cmp 
+    # Definir la secuencia de ejecución
+    ingest_trx >> ingest_cmp
